@@ -1,0 +1,7 @@
+COLUMN TABLE "Statuses" (
+     "ID" INTEGER NOT NULL COMMENT 'Status ID',
+	 "DESCRIPTION" NVARCHAR(32) COMMENT 'Information about status',
+	 PRIMARY KEY ("ID"))
+	 COMMENT 'Statuses description'
+	 WITH ASSOCIATIONS( JOIN "Messages" AS "M" ON "M"."IDSTATUS" = "ID")
+UNLOAD PRIORITY 5 AUTO MERGE

@@ -1,12 +1,15 @@
-{ 
-  "role": { 
-    "name": "Role_tbl_messages_consumer", 
-    "object_privileges": [ 
-      { 
-        "name":"Messages", 
-        "type":"TABLE", 
-        "privileges":[ "SELECT","UPDATE" ] 
+{
+  "role": {
+    "name": "Role_tbl_messages_consumer",
+    "object_privileges": [
+      {
+        "name": "Messages",
+        "type": "TABLE",
+        "privileges": [
+          "SELECT",
+          "UPDATE"
+        ]
       }
     ]
   }
-} 
+}   

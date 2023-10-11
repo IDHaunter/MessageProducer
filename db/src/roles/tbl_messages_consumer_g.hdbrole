@@ -1,0 +1,15 @@
+{
+  "role": {
+    "name": "Role_tbl_messages_consumerG#",
+    "object_privileges": [
+      {
+        "name": "Messages",
+        "type": "TABLE",
+        "privileges_with_grant_option": [
+          "SELECT",
+          "UPDATE"
+        ]
+      }
+    ]
+  }
+}

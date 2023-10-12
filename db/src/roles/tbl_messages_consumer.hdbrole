@@ -9,7 +9,28 @@
           "SELECT",
           "UPDATE"
         ]
+      },
+      {
+        "name": "Messages.NotProcessedView",
+        "type": "VIEW",
+        "privileges": [
+          "SELECT"
+        ]
+      },
+      {
+        "name": "Messages.Get",
+        "type": "PROCEDURE",
+        "privileges": [
+          "EXECUTE"
+        ]
+      },
+      {
+        "name": "Messages.Update",
+        "type": "PROCEDURE",
+        "privileges": [
+          "EXECUTE"
+        ]
       }
     ]
   }
-}   
+}

@@ -1,0 +1,30 @@
+PROCEDURE "Messages.Update" (
+	in im_id INTEGER,
+    out ex_errorCode TINYINT,     -- ex_errorCode = 0 means no error
+    out ex_messages VARCHAR(64)  -- техt error description
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+ DECLARE lv_Count INTEGER;
+
+ ex_errorCode = 255;
+ ex_messages = 'Unknown error';
+
+ SELECT COUNT(*) INTO lv_Count
+   FROM "Messages"
+  WHERE "ID" = :im_id AND "IDSTATUS" = 0;
+ 
+  IF (lv_Count=1) 
+  THEN 
+    UPDATE "Messages" SET "PROCESSEDAT" = Now(), "IDSTATUS" = 1 WHERE "ID" = :im_id;
+    ex_errorCode = 0;
+    ex_messages = '';
+  ELSE -- no message to update
+    ex_errorCode = 1;
+    ex_messages = 'N';
+  END IF;
+
+END

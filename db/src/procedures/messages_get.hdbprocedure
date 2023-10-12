@@ -1,0 +1,19 @@
+PROCEDURE "Messages.Get" (
+	in im_idstatus INTEGER --,
+    --out ex_messages TABLE ("ID" INTEGER, "CREATEDAT" TIMESTAMP, "TEXT" NVARCHAR(128)) 
+    --out ex_messages "Procedures.ex_messages"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+
+--ex_messages = 
+     SELECT
+     m."ID",
+     m."CREATEDAT",
+     m."TEXT"     
+       FROM "Messages" AS m WHERE m."IDSTATUS" = :im_idstatus;
+
+END

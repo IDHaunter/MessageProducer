@@ -7,3 +7,19 @@ VIEW "Messages.NotProcessedView" COMMENT 'Not processed messages view' (
      "M"."CREATEDAT" AS "CREATEDAT" ,
      "M"."TEXT" AS "TEXT"      
 FROM "Messages" AS "M" WHERE "M"."IDSTATUS" = 0
+
+/*
+
+instead of using WHERE we can use privileges:
+WITH READ ONLY STRUCTURED PRIVILEGE CHECK 
+
+if so, it needs to define structured privilege in file 
+file_name.hdbstructuredprivilege
+
+STRUCTURED PRIVILEGE 
+  "MESSAGES_VIEW_PRIVILEGE"
+  FOR SELECT ON 
+    "Messages.NotProcessedView"
+    WHERE IDSTATUS" = 0
+
+*/

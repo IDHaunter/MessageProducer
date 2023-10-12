@@ -1,0 +1,2 @@
+TYPE "Procedures.ex_messages" AS TABLE ( 
+     "ID" INTEGER, "CREATEDAT" TIMESTAMP, "TEXT" NVARCHAR(128) ) 

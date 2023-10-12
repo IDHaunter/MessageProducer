@@ -1,0 +1,9 @@
+VIEW "Messages.NotProcessedView" COMMENT 'Not processed messages view' ( 
+     "ID",
+     "CREATEDAT",
+     "TEXT"
+     ) AS SELECT
+     "M"."ID" AS "ID" ,
+     "M"."CREATEDAT" AS "CREATEDAT" ,
+     "M"."TEXT" AS "TEXT"      
+FROM "Messages" AS "M" WHERE "M"."IDSTATUS" = 0

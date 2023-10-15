@@ -1,0 +1,6 @@
+service {
+	"Messages" as "M";
+	"Statuses" as "S";
+	association "S_M" with referential constraint 
+	principal "S"("ID") multiplicity "1" dependent "M"("IDSTATUS") multiplicity "*"; 
+}

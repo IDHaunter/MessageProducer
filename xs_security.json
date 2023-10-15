@@ -1,0 +1,46 @@
+{
+    "xsappname" : "ds-message_producer",
+    "scopes"     : [ { 
+                      "name" : "$XSAPPNAME.Creator", 
+                      "description" : "Create messages" },
+    				 { 
+                      "name" : "$XSAPPNAME.Updater", 
+                      "description" : "Update status of messages" },
+    				 { 
+                      "name" : "$XSAPPNAME.Reader", 
+                      "description" : "Read messages" }
+                   ], 
+    "attributes" : [ { 
+                      "name" : "Client", 
+                      "description" : "Client id", 
+                      "valueType" : "int" }, 
+                     {
+                      "name" : "Description", 
+                      "description" : "Description of this client", 
+                      "valueType" : "string" },
+                     {
+                      "name" : "DateExp", 
+                      "description" : "Expiry date", 
+                      "valueType" : "date" }
+                   ], 
+    "role-templates": [ { 
+                        "name"               : "Producer_role_t", 
+                        "description"        : "Create, update and read messages", 
+                        "scope-references"   : [ "$XSAPPNAME.Creator", 
+                                                 "$XSAPPNAME.Updater",
+                                                 "$XSAPPNAME.Reader"], 
+                        "attribute-references" : ["Client", "Description"] },
+                        { 
+                        "name"               : "Consumer_role_t", 
+                        "description"        : "Update and read messages", 
+                        "scope-references"   : ["$XSAPPNAME.Updater",
+                                                "$XSAPPNAME.Reader"], 
+                        "attribute-references" : ["Client", "Description", "DateExp"] },
+                        { 
+                        "name"               : "Logger_role_t", 
+                        "description"        : "Read messages", 
+                        "scope-references"   : ["$XSAPPNAME.Reader"], 
+                        "attribute-references" : ["Client", "Description", "DateExp"] }
+                     ]  
+  }
+  

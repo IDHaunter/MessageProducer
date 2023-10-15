@@ -1,19 +1,42 @@
 ID: MessageProducer
 _schema-version: '2.1'
 version: 0.0.1
-
 modules:
- - name: db
-   type: hdb
-   path: db
-   requires:
-    - name: hdi_db
-
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db
+  - name: web
+    type: html5
+    path: web
+    requires:
+      - name: DSALAVEI-MessageProducer-UAA-Service
+      - name: core_xsjs_api
+        group: destinations
+        properties:
+          name: core-xsjs-backend
+          url: '~{url}'
+          forwardAuthToken: true
+  - name: core_xsjs
+    type: nodejs
+    path: core_xsjs
+    provides:
+      - name: core_xsjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: DSALAVEI-MessageProducer-UAA-Service
+      - name: hdi_db
+      - name: db
 resources:
- - name: hdi_db
-   parameters:
+  - name: hdi_db
+    parameters:
       config:
-         schema: MP
-   properties:
-      hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
+        schema: MP
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: DSALAVEI-MessageProducer-UAA-Service
+    type: com.sap.xs.uaa-space
+description: Message producer

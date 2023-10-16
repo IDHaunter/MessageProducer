@@ -18,6 +18,8 @@ modules:
           name: core-xsjs-backend
           url: '~{url}'
           forwardAuthToken: true
+    parameters:
+      memory: 64M
   - name: DSALAVEI_mp_core_xsjs
     type: nodejs
     path: core_xsjs
@@ -29,6 +31,8 @@ modules:
       - name: DSALAVEI-MessageProducer-UAA-Service
       - name: DSALAVEI-MessageProducer-hdi_db-Service
       - name: DSALAVEI_mp_db
+    parameters:
+      memory: 64M
 resources:
   - name: DSALAVEI-MessageProducer-hdi_db-Service
     parameters:

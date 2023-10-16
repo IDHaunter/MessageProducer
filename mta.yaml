@@ -2,12 +2,12 @@ ID: MessageProducer
 _schema-version: '2.1'
 version: 0.0.1
 modules:
-  - name: db
+  - name: DSALAVEI_mp_db
     type: hdb
     path: db
     requires:
-      - name: hdi_db
-  - name: web
+      - name: DSALAVEI-MessageProducer-hdi_db-Service
+  - name: DSALAVEI_mp_web
     type: html5
     path: web
     requires:
@@ -18,7 +18,7 @@ modules:
           name: core-xsjs-backend
           url: '~{url}'
           forwardAuthToken: true
-  - name: core_xsjs
+  - name: DSALAVEI_mp_core_xsjs
     type: nodejs
     path: core_xsjs
     provides:
@@ -27,10 +27,10 @@ modules:
           url: '${default-url}'
     requires:
       - name: DSALAVEI-MessageProducer-UAA-Service
-      - name: hdi_db
-      - name: db
+      - name: DSALAVEI-MessageProducer-hdi_db-Service
+      - name: DSALAVEI_mp_db
 resources:
-  - name: hdi_db
+  - name: DSALAVEI-MessageProducer-hdi_db-Service
     parameters:
       config:
         schema: MP

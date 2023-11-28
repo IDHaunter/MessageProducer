@@ -43,4 +43,6 @@ resources:
     type: com.sap.xs.hdi-container
   - name: DSALAVEI-MessageProducer-UAA-Service
     type: com.sap.xs.uaa-space
+    parameters:
+      path: xs_security.json
 description: Message producer

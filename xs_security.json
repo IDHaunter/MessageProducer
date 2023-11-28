@@ -29,7 +29,7 @@
                         "scope-references"   : [ "$XSAPPNAME.Creator", 
                                                  "$XSAPPNAME.Updater",
                                                  "$XSAPPNAME.Reader"], 
-                        "attribute-references" : ["Client", "Description"] },
+                        "attribute-references" : ["Client", "Description", "DateExp"] },
                         { 
                         "name"               : "Consumer_role_t", 
                         "description"        : "Update and read messages", 
